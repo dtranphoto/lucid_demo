@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lucid Vehicle Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+      padding: 2rem;
+    }
+    h1 {
+      text-align: center;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    th, td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #222;
+      color: #fff;
+    }
+    tr:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lucid Vehicle Tracking Dashboard</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Vehicle ID</th>
+        <th>Location</th>
+        <th>Status</th>
+        <th>Battery %</th>
+        <th>Range (mi)</th>
+      </tr>
+    </thead>
+    <tbody id="vehicle-table-body">
+      <!-- Populated by JavaScript -->
+    </tbody>
+  </table>
+
+  <script>
+    const vehicles = [
+      { id: "LUCID-001", location: "San Jose, CA", status: "Charging", battery: 78, range: 230 },
+      { id: "LUCID-002", location: "Los Angeles, CA", status: "In Transit", battery: 64, range: 180 },
+      { id: "LUCID-003", location: "Phoenix, AZ", status: "Idle", battery: 92, range: 310 }
+    ];
+
+    const tableBody = document.getElementById("vehicle-table-body");
+    vehicles.forEach(vehicle => {
+      const row = `<tr>
+        <td>${vehicle.id}</td>
+        <td>${vehicle.location}</td>
+        <td>${vehicle.status}</td>
+        <td>${vehicle.battery}%</td>
+        <td>${vehicle.range}</td>
+      </tr>`;
+      tableBody.innerHTML += row;
+    });
+  </script>
+</body>
+</html>
